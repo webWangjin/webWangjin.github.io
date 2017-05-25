@@ -1,0 +1,296 @@
+﻿<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<HTML xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<HEAD>
+    <META content="IE=11.0000" http-equiv="X-UA-Compatible">
+
+    <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <TITLE>我的小CP-郭杉</TITLE>
+        <LINK href="shuju/default.css" rel="stylesheet" type="text/css">
+        <SCRIPT src="shuju/jquery.min.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex.min.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex-parser.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex-jit.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex-builderbase.min.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex-async.min.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/jscex-async-powerpack.min.js" type="text/javascript"></SCRIPT>
+
+        <SCRIPT src="shuju/functions.js" type="text/javascript" charset="utf-8"></SCRIPT>
+
+        <SCRIPT src="shuju/love.js" type="text/javascript" charset="utf-8"></SCRIPT>
+
+        <STYLE type="text/css">
+            <!-- .STYLE1 {
+                color: #666666
+            }
+            
+            -->-->
+        </STYLE>
+        <audio src=""></audio>
+        <DIV id="main">
+            <DIV id="wrap">
+                <DIV id="text">
+                    <DIV id="code">
+                        <FONT color="#ff0000">
+                            <SPAN class="say">*
+杉，你好~</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">*
+一周时间转眼就要到了</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">* 
+在这一周的时间里，和你接触很少</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">* 但也能感觉到你是一个外强内弱的小女生，一个爱看推理小说的小女生</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">* 一个王者荣耀段位很高的小女生
+</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">* 
+总而言之感觉，你是一个非常有意思的小仙女，深深的吸引了我，让我整天与代码打交道的生活起了变化，也让我开始思考我人生的那个她将会在哪里等我，也或许等梦想碎了，自己漂累了，回到家找了陌生的人将就了。</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">*
+一周结束后，咱们CP关系也结束了，有个小请求，即使以后做不成CP，还希望咱们能够做个好朋友。</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say">*
+落霞与孤鹜齐飞 秋水共长天一色 希望你我都能找到一个属于自己的那个他（她）</SPAN>
+                            <BR>
+                            <SPAN class="say"></SPAN>
+                            <BR>
+                            <SPAN class="say"><SPAN
+                    class="space"></SPAN> -- 鹜</SPAN>
+                        </FONT>
+                        <P></P>
+                    </DIV>
+                </DIV>
+             
+                <CANVAS width="1100" height="680" id="canvas"></CANVAS>
+            </DIV>
+        </DIV>
+        <SCRIPT>
+            (function () {
+                var canvas = $('#canvas');
+
+                if (!canvas[0].getContext) {
+                    $("#error").show();
+                    return false;
+                }
+
+                var width = canvas.width();
+                var height = canvas.height();
+
+                canvas.attr("width", width);
+                canvas.attr("height", height);
+
+                var opts = {
+                    seed: {
+                        x: width / 2 - 20,
+                        color: "rgb(190, 26, 37)",
+                        scale: 2
+                    },
+                    branch: [
+                        [535, 680, 570, 250, 500, 200, 30, 100, [
+                            [540, 500, 455, 417, 340, 400, 13, 100, [
+                                [450, 435, 434, 430, 394, 395, 2, 40]
+                            ]],
+                            [550, 445, 600, 356, 680, 345, 12, 100, [
+                                [578, 400, 648, 409, 661, 426, 3, 80]
+                            ]],
+                            [539, 281, 537, 248, 534, 217, 3, 40],
+                            [546, 397, 413, 247, 328, 244, 9, 80, [
+                                [427, 286, 383, 253, 371, 205, 2, 40],
+                                [498, 345, 435, 315, 395, 330, 4, 60]
+                            ]],
+                            [546, 357, 608, 252, 678, 221, 6, 100, [
+                                [590, 293, 646, 277, 648, 271, 2, 80]
+                            ]]
+                        ]]
+                    ],
+                    bloom: {
+                        num: 700,
+                        width: 1080,
+                        height: 650,
+                    },
+                    footer: {
+                        width: 1200,
+                        height: 5,
+                        speed: 10,
+                    }
+                }
+
+                var tree = new Tree(canvas[0], width, height, opts);
+                var seed = tree.seed;
+                var foot = tree.footer;
+                var hold = 1;
+
+                canvas.click(function (e) {
+                    var offset = canvas.offset(), x, y;
+                    x = e.pageX - offset.left;
+                    y = e.pageY - offset.top;
+                    if (seed.hover(x, y)) {
+                        hold = 0;
+                        canvas.unbind("click");
+                        canvas.unbind("mousemove");
+                        canvas.removeClass('hand');
+                    }
+                }).mousemove(function (e) {
+                    var offset = canvas.offset(), x, y;
+                    x = e.pageX - offset.left;
+                    y = e.pageY - offset.top;
+                    canvas.toggleClass('hand', seed.hover(x, y));
+                });
+
+                var seedAnimate = eval(Jscex.compile("async", function () {
+                    seed.draw();
+                    while (hold) {
+                        $await(Jscex.Async.sleep(10));
+                    }
+                    while (seed.canScale()) {
+                        seed.scale(0.95);
+                        $await(Jscex.Async.sleep(10));
+                    }
+                    while (seed.canMove()) {
+                        seed.move(0, 2);
+                        foot.draw();
+                        $await(Jscex.Async.sleep(10));
+                    }
+                }));
+
+                var growAnimate = eval(Jscex.compile("async", function () {
+                    do {
+                        tree.grow();
+                        $await(Jscex.Async.sleep(10));
+                    } while (tree.canGrow());
+                }));
+
+                var flowAnimate = eval(Jscex.compile("async", function () {
+                    do {
+                        tree.flower(2);
+                        $await(Jscex.Async.sleep(10));
+                    } while (tree.canFlower());
+                }));
+
+                var moveAnimate = eval(Jscex.compile("async", function () {
+                    tree.snapshot("p1", 240, 0, 610, 680);
+                    while (tree.move("p1", 500, 0)) {
+                        foot.draw();
+                        $await(Jscex.Async.sleep(10));
+                    }
+                    foot.draw();
+                    tree.snapshot("p2", 500, 0, 610, 680);
+
+                    // 会有闪烁不得意这样做, (＞﹏＜)
+                    canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+                    canvas.css("background", "#ffe");
+                    $await(Jscex.Async.sleep(300));
+                    canvas.css("background", "none");
+                }));
+
+                var jumpAnimate = eval(Jscex.compile("async", function () {
+                    var ctx = tree.ctx;
+                    while (true) {
+                        tree.ctx.clearRect(0, 0, width, height);
+                        tree.jump();
+                        foot.draw();
+                        $await(Jscex.Async.sleep(25));
+                    }
+                }));
+
+                var textAnimate = eval(Jscex.compile("async", function () {
+                    var together = new Date();
+                    together.setFullYear(2012, 9, 10); 			//时间年月日
+                    together.setHours(18);						//小时
+                    together.setMinutes(03);					//分钟
+                    together.setSeconds(0);					//秒前一位
+                    together.setMilliseconds(55);				//秒第二位
+
+                    $("#code").show().typewriter();
+                    $("#clock-box").fadeIn(500);
+                    while (true) {
+                        timeElapse(together);
+                        $await(Jscex.Async.sleep(1000));
+                    }
+                }));
+
+                var runAsync = eval(Jscex.compile("async", function () {
+                    $await(seedAnimate());
+                    $await(growAnimate());
+                    $await(flowAnimate());
+                    $await(moveAnimate());
+
+                    textAnimate().start();
+
+                    $await(jumpAnimate());
+                }));
+
+                runAsync().start();
+            })();
+
+        </SCRIPT>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="bg1">
+            <div class="main">
+                <footer style="line-height:20px">
+                    <!--<div id="copyright">
+                <div align="center">Copyright © 2015 <a href='http://51bbw.cn' target="_blank">我要表白网</a>
+                    本源码由我要表白网提供 由<a href="http://ymjzy.net" target="_blank">源码集中营</a>
+                    <a href="http://zhe71.com" target="_blank">折71</a>联合发布
+                </div>
+                </object>
+            </div>-->
+            </div>
+        </div>
+        </div>
+        <audio id="bgmMusic" src="01.mp3" preload="auto" type="audio/mp3" autoplay loop></audio>
+
+        <script>
+            window._bd_share_config = {
+                "common": {
+                    "bdSnsKey": {},
+                    "bdText": "",
+                    "bdMini": "2",
+                    "bdMiniList": false,
+                    "bdPic": "",
+                    "bdStyle": "0",
+                    "bdSize": "16"
+                },
+                "slide": { "type": "slide", "bdImg": "1", "bdPos": "right", "bdTop": "100" },
+                "image": { "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"], "viewText": "分享到：", "viewSize": "16" },
+                "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"] }
+            };
+            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+        </script>
+        <!-- 51bbw.cn Baidu tongji analytics -->
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc5987e1ba8b95bbc85efa2ecefbfc06e' type='text/javascript'%3E%3C/script%3E"));
+
+        </script>
+    </body>
+
+</html>
