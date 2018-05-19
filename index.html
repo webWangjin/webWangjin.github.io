@@ -1,106 +1,202 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="keywords" content="" />
-<meta name="description" content=""/>
-<title>相爱五周年！！！</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="关键词,关键字">
+    <meta name="Description" content="描述信息">
+    <title>你是我的世界，我的世界是你</title>
+    <style type="text/css">
+        /*外边距*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            background: url("images/timg.jpg");
+            background-size:100% 100%;
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
+        /*start box*/
+        .box {
+            width: 280px;
+            height: 36px;
+            margin: 40px auto 80px;
+            font-size: 40px;
+            animation: ranB 4s linear infinite;
+        }
+
+        /*end box*/
+
+        /*start content*/
+        .content {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            perspective: 800px;
+        }
+
+        .content .pic {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: ranA 10s linear infinite;
+        }
+
+        .content .pic ul {
+            list-style: none;
+        }
+
+        .content .pic ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.2s;
+        }
+
+        .content .pic ul li:hover img {
+            transform: scale(1.2);
+        }
+
+        /*end content*/
+
+        /*start text*/
+        .text {
+            position: fixed;
+            width: 680px;
+            height: 100px;
+            background: #33ccff;
+            bottom: 50px;
+            left: 50%;
+            text-align: center;
+            margin-left: -90px;
+            font-size: 25px;
+            font-family: "华文行楷";
+            color: transparent;
+            background: -webkit-linear-gradient(45deg, #ffff00, #ff0000, #ff00cc, #ccff00, #3300ff, #66ff00, #ccff00);
+            -webkit-background-clip: text;
+            animation: ranC 5s linear infinite;
+            line-height: 26px;
+        }
+
+        /*end text*/
+
+        /*关键帧*/
+        @Keyframes ranA {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @Keyframes ranB {
+            0% {
+                color: #ff0000;
+            }
+            20% {
+                color: #66ff00;
+            }
+            40% {
+                color: #ffff00;
+            }
+            60% {
+                color: #0000ff;
+            }
+            80% {
+                color: #ff00ff;
+            }
+            100% {
+                color: #cc00ff;
+            }
+        }
+
+        @Keyframes ranC {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 2000px 0;
+            }
+        }
+        @media screen and (orientation: portrait) {
+        body {
+            -webkit-transform:rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            width: 100vh;
+            height: 100vh;
+           
+        }
+ 
+        
+    }
+    .pic img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
 
 </head>
+
 <body>
-<div class="Upper">
-	<table style="width:100%" border="0" cellspacing="0" cellpadding="0" align="center">
-		<tr>
-			<td>
-			<table style="width:600px" border="0" cellspacing="0" cellpadding="0" align="center">
 
-				<tr>
-					<td style="padding:70px 0 0" align="center" width="385">
-					<span id="botAgregar" style="position:absolute; z-index:999; color:red; top:20px; margin-left:-35px;"></span>
-					<h1 style="color:#f4f2ed"></h1>
-					<p style="color:#d3f1a0"></p>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding:10px 0" colspan="2" align="right"></td>
-				</tr>
-			</table>
-			<table style="width:600px" border="0" cellspacing="0" cellpadding="0" align="center">
-				<tr>
-					<td class="content" style align="left" valign="top" width="600">
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td style="padding:20px 0 25px 95px" align="left">
-							</td>
-						</tr>
-						<tr>
-							<td style="padding:0 0 25px 95px" valign="top"></td>
-						</tr>
-
-
-					</table>
-					</td>
-				</tr>
-			</table>
-
-			</td>
-		</tr>
-	</table>
+<!--div盒子 容器-->
+<!--start box-->
+<div class="box">
+    <marquee behavior=alternate>I LOVE YOU</marquee>
 </div>
-<!-- <div id="code" style="position:absolute; right:0; bottom:0;">
-	<span class="space"><span class="comments" style="color:red">By ?? ???</span><br>
-</div> -->
-<script type="text/javascript">
-(function($) {
-	$.fn.typewriter = function() {
-		this.each(function() {
-			var $ele = $(this), str = $ele.html(), progress = 0;
-			$ele.html('');
-			var timer = setInterval(function() {
-				var current = str.substr(progress, 1);
-				if (current == '<') {
-					progress = str.indexOf('>', progress) + 1;
-				} else {
-					progress++;
-				}
-				$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
-				if (progress >= str.length) {
-					clearInterval(timer);
-				}
-			}, 75);
-		});
-		return this;
-	};
-})(jQuery);
-</script>
-<script type="text/javascript">
+<!--end box-->
 
-$.AutomLeafStart({
-leafsfolder:"images/",
-howmanyimgsare:8,
-initialleafs:10,
-maxYposition:-5,
-multiplyclick:true,
-multiplynumber:2,
-infinite:true,
-fallingsequence:500
-});
-$.AutomLeafAdd({leafsfolder:"images/",add:8,})
-$("#botAgregar").on("click",function(){
-$.AutomLeafAdd({leafsfolder:"images/",add:8,})
+<!--start content-->
+<div class="content">
+    <div class="pic">
+        <ul>
+            <li><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+            <li><img src="images/3.png"></li>
+            <li><img src="images/4.png"></li>
+            <li><img src="images/5.png"></li>
+            <li><img src="images/6.png"></li>
+        </ul>
+    </div>
+</div>
+<!--end content-->
 
-});
-$("#code").typewriter();
+<!--start text-->
+<div class="text" id="text"></div>
+<!--end text-->
+
+<embed src="http://play.baidu.com/?__m=mboxCtrl.playSong&__a=266322598&__o=song/266322598||playBtn&fr=altg_new3||www.baidu.com#"
+       loop="5" hidden="true"/>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script>
+    var Deg = 360 / $(".pic ul li").size();
+    $(".pic ul li").each(function (i) {   //遍历：each
+
+        $(this).css({
+            "transform": "rotateY(" + i * 60 + "deg)translateZ(216px)"
+        });
+
+    });
+
+    var i = 0;
+    var str = "宝宝 520快乐，我要爱你一辈子，宠你一辈子，把你宠成智障一样";
+    window.onload = function typing() {
+        var mydiv = document.getElementById("text");//找到你要存放文字的盒子
+        mydiv.innerHTML += str.charAt(i);
+        i++;
+        var id = setTimeout(typing, 100);
+        if (i == str.length) {
+            clearTimeout(id, 100);
+        }
+        console.log(i);
+    }
+
 </script>
-<script type="text/javascript" src="js/txt.js" charset=UTF-8></script>
-<canvas id="canvas" width="888" height="666"></canvas>
-<!-- <div style="text-align:center;">
-<p>???????<a href="http://www.xz-src.com/" target="_blank">??????</a></p>
-</div> -->
+
 </body>
-<audio autoplay loop>
-					<source src="mouse.mp3" type="audio/mp3" />
-			</audio>
 </html>
